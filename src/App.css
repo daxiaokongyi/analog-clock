@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('./brick-wall2.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.clocks {
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem auto;
+  text-shadow: 3px 3px 6px black;
+}
+
+/* analog-clock body*/
+.analog-clock {
+  margin: auto 1.5rem;
+  width: 25em;
+  height: 25em;
+  border-radius: 50%;
+  background-color: rgb(252, 249, 249);
+  border: 0.7em solid black;
+  position: relative;
+  box-shadow: 48px 28px 50px rgb(5, 5, 5), inset 16px 16px 16px rgb(201, 199, 199)
+}
+
+/* add the center point used to cover all of hands */
+.analog-clock::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+  /* set z-index which should be higher than the z-index of hands to cover all the hands */
+  z-index: 2;
+}
+
+/* attach clock number 1-12 inclduding samll grids and have them rotate with correct degree */
+.clock-number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  transform: rotate(var(--rotation));
+}
+
+.number-1 {--rotation: 30deg}
+.number-2 {--rotation: 60deg}
+.number-3 {--rotation: 90deg}
+.number-4 {--rotation: 120deg}
+.number-5 {--rotation: 150deg}
+.number-6 {--rotation: 180deg}
+.number-7 {--rotation: 210deg}
+.number-8 {--rotation: 240deg}
+.number-9 {--rotation: 270deg}
+.number-10 {--rotation: 300deg}
+.number-11 {--rotation: 330deg}
+.number-12 {--rotation: 360deg}
+
+/* add bar before each number */
+[class*="number-"]::before {
+  content: '';
+  display: block;
+  width: 0.2em;
+  height: 1.1em;
+  text-align: center;
+  background-color: black;
+  margin: auto;
+}
+
+/* rotate each number to the correct position and change their sizes */
+.clock-number div {font-size: 2em;}
+
+.number-1 div {transform: rotate(-30deg);}
+.number-2 div {transform: rotate(-60deg);}
+.number-3 div {transform: rotate(-90deg);}
+.number-4 div {transform: rotate(-120deg);}
+.number-5 div {transform: rotate(-150deg);}
+.number-6 div {transform: rotate(-180deg);}
+.number-7 div {transform: rotate(-210deg);}
+.number-8 div {transform: rotate(-240deg);}
+.number-9 div {transform: rotate(-270deg);}
+.number-10 div {transform: rotate(-300deg);}
+.number-11 div {transform: rotate(-330deg);}
+.number-12 div {transform: rotate(-360deg);}
+
+/* add and rotate the small grids to the correct positions */
+.min-number-1-1 {--rotation: 6deg;}
+.min-number-1-2 {--rotation: 12deg;}
+.min-number-1-3 {--rotation: 18deg;}
+.min-number-1-4 {--rotation: 24deg;}
+
+.min-number-2-1 {--rotation: 36deg;}
+.min-number-2-2 {--rotation: 42deg;}
+.min-number-2-3 {--rotation: 48deg;}
+.min-number-2-4 {--rotation: 54deg;}
+
+.min-number-3-1 {--rotation: 66deg;}
+.min-number-3-2 {--rotation: 72deg;}
+.min-number-3-3 {--rotation: 78deg;}
+.min-number-3-4 {--rotation: 84deg;}
+
+.min-number-4-1 {--rotation: 96deg;}
+.min-number-4-2 {--rotation: 102deg;}
+.min-number-4-3 {--rotation: 108deg;}
+.min-number-4-4 {--rotation: 114deg;}
+
+.min-number-5-1 {--rotation: 126deg;}
+.min-number-5-2 {--rotation: 132deg;}
+.min-number-5-3 {--rotation: 138deg;}
+.min-number-5-4 {--rotation: 144deg;}
+
+.min-number-6-1 {--rotation: 156deg;}
+.min-number-6-2 {--rotation: 162deg;}
+.min-number-6-3 {--rotation: 168deg;}
+.min-number-6-4 {--rotation: 174deg;}
+
+.min-number-7-1 {--rotation: 186deg;}
+.min-number-7-2 {--rotation: 192deg;}
+.min-number-7-3 {--rotation: 198deg;}
+.min-number-7-4 {--rotation: 204deg;}
+
+.min-number-8-1 {--rotation: 216deg;}
+.min-number-8-2 {--rotation: 222deg;}
+.min-number-8-3 {--rotation: 228deg;}
+.min-number-8-4 {--rotation: 234deg;}
+
+.min-number-9-1 {--rotation: 246deg;}
+.min-number-9-2 {--rotation: 252deg;}
+.min-number-9-3 {--rotation: 258deg;}
+.min-number-9-4 {--rotation: 264deg;}
+
+.min-number-10-1 {--rotation: 276deg;}
+.min-number-10-2 {--rotation: 282deg;}
+.min-number-10-3 {--rotation: 288deg;}
+.min-number-10-4 {--rotation: 294deg;}
+
+.min-number-11-1 {--rotation: 306deg;}
+.min-number-11-2 {--rotation: 312deg;}
+.min-number-11-3 {--rotation: 318deg;}
+.min-number-11-4 {--rotation: 324deg;}
+
+.min-number-12-1 {--rotation: 336deg;}
+.min-number-12-2 {--rotation: 342deg;}
+.min-number-12-3 {--rotation: 348deg;}
+.min-number-12-4 {--rotation: 354deg;}
+
+/* style the small grids */
+[class*="min-number"]::before {
+  content: '';
+  display: block;
+  width: 0.1em;
+  height: 0.5em;
+  text-align: center;
+  background-color: black;
+  margin: auto;
+}
+
+/* style the hands */
+.clock-hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  transform-origin: bottom;
+  z-index: 1;
+}
+
+/* style hands */
+.clock-hand-hr {
+  width: 0.6rem; 
+  height: 30%;
+  background-color: black;
+}
+
+.clock-hand-min {
+  width: 0.4rem;
+  height: 40%;
+  background-color: black;
+}
+
+.clock-hand-sec {
+  width: 0.1rem;
+  height: 45%;
+  background-color: red;
+}
+
+/* style days light saving div */
+.apply-dst {
+  display: block;
+  font-size: large;
+  margin: 3rem 1rem;
+  color: black;
+  text-align: center;
+}
+
+/* style daylight savings label*/
+label {
+  display: inline-block;
+  padding: 1rem;
+  margin: auto;
+  font-size: 1rem;
+  font-weight: 300;
+}
