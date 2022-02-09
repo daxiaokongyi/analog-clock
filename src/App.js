@@ -4,14 +4,17 @@ import './App.css';
 
 class App extends Component {
   // initialize the states including clock hands at California and London time zone, and a state about whether days light saving applied or not 
-  state = {
-    seconds: 0,
-    minutes: 0,
-    hours: 0,
-    londonSeconds: 0,  
-    londonMinutes: 0,  
-    londonHours: 0,
-    dstApplied: "false"
+  constructor(props) {
+    super(props);
+    this.state = {
+      seconds: 0,
+      minutes: 0,
+      hours: 0,
+      londonSeconds: 0,  
+      londonMinutes: 0,  
+      londonHours: 0,
+      dstApplied: "false"
+    }
   }
 
   componentDidMount() {
